@@ -17,12 +17,28 @@ describe('RadioButtons', () => {
   });
 
   describe('displays value', () => {
-    it('correctly maps option keys and values', () => {
+    it('correctly renders labels', () => {
       const wrapper = shallow(<RadioButtonType knob={knob} />);
 
-      const green = wrapper.find('option').first();
-      expect(green.text()).toEqual('Green');
-      expect(green.prop('value')).toEqual('#00ff00');
+      const greenLabel = wrapper.find('label').first();
+      expect(greenLabel.text()).toEqual('Green');
+    });
+
+    it('sets value on the radio buttons', () => {
+      const wrapper = shallow(<RadioButtonType knob={knob} />);
+
+      const greenInput = wrapper.find('input').first();
+      expect(greenInput.prop('value')).toEqual('#00ff00');
+    });
+
+    it('marks the correct checkbox as checked', () => {
+      const wrapper = shallow(<RadioButtonType knob={knob} />);
+
+      const greenInput = wrapper.find('input').first();
+      const redInput = wrapper.find('input').last();
+
+      expect(greenInput.prop('checked')).toEqual(true);
+      expect(redInput.prop('checked')).toEqual(false);
     });
   });
 });

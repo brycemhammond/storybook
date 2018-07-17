@@ -47,7 +47,7 @@ storiesOf('Addons|Knobs.withKnobs', module)
     const fruit = select('Fruit', fruits, 'apple');
     const otherFruits = {
       Kiwi: 'kiwi',
-      Orange: 'orange',
+      Guava: 'guava',
       Watermelon: 'watermelon',
     };
 
